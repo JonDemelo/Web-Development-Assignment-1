@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en-US" lang="en-US">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Jonathan Demelo | CS3336 HW1</title>
+	<script src="./js/jQuery/jquery-1.6.4.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="./css/hw1.css" type="text/css" media="screen" />
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('img').mousedown(function(){
+    			return false;
+			})
+
+			$('.smallimg').click(function(){
+				var temp = $(this).attr("class");
+				$('#centersection > img').css('display', 'none');
+				
+				if (temp.indexOf("one") !=-1){
+					$('#centersection > .lrgone').show();
+				} else if(temp.indexOf("two") !=-1){
+					$('#centersection > .lrgtwo').show();
+				} else if(temp.indexOf("three") !=-1){
+					$('#centersection > .lrgthree').show();
+				} else if(temp.indexOf("four") !=-1){
+					$('#centersection > .lrgfour').show();
+				} 
+			});
+
+			$('.next').click(function(){
+				var temp = $('#centersection > img:visible').attr('class');
+				$('#centersection > img').css('display', 'none');
+
+				if (temp.indexOf('one') !=-1){
+					$('#centersection > .lrgtwo').show();
+				} else if(temp.indexOf("two") !=-1){
+					$('#centersection > .lrgthree').show();
+				} else if(temp.indexOf("three") !=-1){
+					$('#centersection > .lrgfour').show();
+				} else if(temp.indexOf("four") !=-1){
+					$('#centersection > .lrgone').show();
+				} 
+			});
+
+			$('.prev').click(function(){
+				var temp = $('#centersection > img:visible').attr('class');
+				$('#centersection > img').css('display', 'none');
+
+				if (temp.indexOf("one") !=-1){
+					$('#centersection > .lrgfour').show();
+				} else if(temp.indexOf("two") !=-1){
+					$('#centersection > .lrgone').show();
+				} else if(temp.indexOf("three") !=-1){
+					$('#centersection > .lrgtwo').show();
+				} else if(temp.indexOf("four") !=-1){
+					$('#centersection > .lrgthree').show();
+				} 
+			});
+		});
+</script>
+</head>
+
+<body>
+	<div class="mainbody">
+		<div class="bannersection"><img class="bannerimg" src="./img/banner.jpg" alt="University of Western Ontario"/></div>
+		<div class="page">
+			<div class="sidesection">
+				<div><img class="smallimg three" src="./img/thumb/image3.jpg" alt="Image Three"/></div>
+				<div><img class="smallimg four" src="./img/thumb/image4.jpg" alt="Image Four"/></div>
+			</div>
+			<div id="centersection">
+				<img class="largeimg lrgone" src="./img/image1.jpg" alt="Image One"/>
+				<img class="largeimg lrgtwo" src="./img/image2.jpg" alt="Image Two"/>
+				<img class="largeimg lrgthree" src="./img/image3.jpg" alt="Image Three"/>
+				<img class="largeimg lrgfour" src="./img/image4.jpg" alt="Image Four"/>
+			</div>
+			<div class="sidesection">
+				<div><img class="smallimg one" src="./img/thumb/image1.jpg" alt="Image One"/></div>
+				<div><img class="smallimg two" src="./img/thumb/image2.jpg" alt="Image Four"/></div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="button prev">Previous</div>
+			<div class="button next">Next</div>
+		</div>
+	</div>
+</body>
+</html>
